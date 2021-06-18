@@ -29,7 +29,8 @@ Route::get('/', function () {
            $document->title,
            $document->body(),
            $document->date,
-           $document->excerpt
+           $document->excerpt,
+           $document->slug
        );
     }
 

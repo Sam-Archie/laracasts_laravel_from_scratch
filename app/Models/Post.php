@@ -14,13 +14,15 @@ class Post
     public $excerpt;
     public $title;
     public $body;
+    public $slug;
 
-    public function __construct($title, $excerpt, $date, $body)
+    public function __construct($title, $excerpt, $date, $body, $slug)
     {
         $this->title = $title;
         $this->excerpt = $excerpt;
         $this->body = $body;
         $this->date = $date;
+        $this->slug = $slug;
     }
 
     public static function find(string $slug)
