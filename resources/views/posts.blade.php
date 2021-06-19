@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/app.css">
-    <title>My Blog</title>
-</head>
-
-<body>
-    <?php foreach ($posts as $post) : ?> 
-        <article>
+<x-layout>
+    @foreach ($posts as $post)
+    {{-- @dd($loop); --}}
+    {{-- //This variable is extremely useful, look into what you can access for instance the class below that is commented out --}}
+        <article class="{{-- $loop->even?'class-x': '' --}}"> {{-- access to the odd/even attribut allows us to put a class on every even number --}}
             <h1>
-                 <a href="posts/<?= $post->slug ?>">
+                <a href="posts/{{ $post->slug }}">
                     {{ $post->title }}
                 </a>
             </h1>
             <div>
-                <?= $post->excerpt; ?>
+                {{ $post->excerpt }}
             </div>
 
         </article>
-    <?php endforeach; ?>
-    
-</body>
-</html>
+    @endforeach
+</x-layout>
