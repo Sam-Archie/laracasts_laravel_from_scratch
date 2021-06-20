@@ -10,7 +10,11 @@
 <body>
     <h1>Hello World</h1>
     <article>
-        <h1>{{ $post->title }}</h1>
+        <h1>{!! $post->title !!}</h1> 
+        <p>
+           By <a href="authors/">{{ $post->author->name }}</a> In <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+            
+        </p>
 
         <div>
             {!! $post->body !!}

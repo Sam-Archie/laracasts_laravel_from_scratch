@@ -1,17 +1,22 @@
 <x-layout>
     @foreach ($posts as $post)
-    {{-- @dd($loop); --}}
-    {{-- //This variable is extremely useful, look into what you can access for instance the class below that is commented out --}}
-        <article class="{{-- $loop->even?'class-x': '' --}}"> {{-- access to the odd/even attribut allows us to put a class on every even number --}}
+
+        <article> {{-- $loop->even?'class-x': '' --}}
             <h1>
                 <a href="posts/{{ $post->slug }}">
-                    {{ $post->title }}
+                    {!! $post->title !!}
                 </a>
             </h1>
-            <div>
-                {{ $post->excerpt }}
-            </div>
 
+            <p>
+           By <a href="/authors/{{ $post->author->id }}">{{ $post->author->name }}</a> In <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+            </p>
+
+            <div>
+                {!! $post->excerpt !!}
+            </div>
+        
         </article>
+
     @endforeach
 </x-layout>

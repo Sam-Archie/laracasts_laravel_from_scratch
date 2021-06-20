@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $user = User::factory()->create([
+            'name' => 'Jon Doe'
+        ]);
+
+        Post::factory(5)->create([
+            'user_id' => $user->id
+        ]);
+        //Associates 5 posts with the user that has already been created
+        //This is amazing
     }
 }
