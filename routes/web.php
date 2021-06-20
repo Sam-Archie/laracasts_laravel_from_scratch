@@ -39,13 +39,13 @@ Route::get('categories/{category:slug}', function (Category $category) {
     //     logger($query->sql, $query->bindings);
     // }); An alternative to clockwork
         return view('posts', [
-        'posts' =>  $category->posts->load(['category', 'author'])
+        'posts' =>  $category->posts
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
         return view('posts', [
-        'posts' =>  $author->posts->load(['category', 'author'])
+        'posts' =>  $author->posts
     ]);
 });
 

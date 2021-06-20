@@ -15,7 +15,7 @@ class Post extends Model
         'body'
     ];
 
-    protected $with = ['category', 'author'];
+    protected $with = ['category', 'author']; //Eager loading by default
 
     public function category()
     {
